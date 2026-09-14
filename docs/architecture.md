@@ -2,48 +2,74 @@
 
 ## System Architecture
 
-[Describe the overall architecture of your system. Replace the Mermaid diagram below with your actual architecture.]
-
 ```mermaid
-graph TD
-    A[User / Browser] -->|HTTP| B[Frontend - React]
-    B -->|REST API| C[Backend - FastAPI]
-    C -->|SDK| D[watsonx.ai]
-    C -->|Query| E[PostgreSQL]
-    C -->|Publish| F[Slack Webhook]
-    D -->|Inference Result| C
-```
+flowchart TD
+    A[User] --> B[PharmaGuard AI Dashboard]
 
-## Components
+    B --> C[Safety Intelligence]
+    B --> D[Regulatory Intelligence]
+    B --> E[AI Copilot]
 
-| Component | Technology | Responsibility |
-|---|---|---|
-| Frontend | [e.g., React 18] | [e.g., Dashboard UI, user interaction] |
-| Backend API | [e.g., FastAPI] | [e.g., Business logic, orchestration] |
-| AI / ML | [e.g., watsonx.ai] | [e.g., Anomaly scoring, classification] |
-| Database | [e.g., PostgreSQL] | [e.g., Storing pipeline events and scores] |
-| Notifications | [e.g., Slack API] | [e.g., Alerting on threshold breaches] |
+    C --> F[Adverse Event Reports]
+    F --> G[Data Processing]
+    G --> H[Drug-Event Analysis]
+    H --> I[PRR Calculation]
+    I --> J[Safety Signals]
+
+    D --> K[CTD Dossier]
+    K --> L[ICH M4 Check]
+    L --> M[Module Completeness]
+    M --> N[Gap Detection]
+    N --> O[Readiness Score]
+
+    J --> E
+    O --> E
+
+    E --> P[Explanation and Prioritization]
+
+Main Components
+
+Component	                Responsibility
+Dashboard                	Main interface for the pharmaceutical user
+Safety                      Intelligence Analyzes adverse-event reports
+PRR Analysis	            Calculates PRR statistics
+Safety Signals	            Identifies and prioritizes potential safety signals
+Regulatory                  Intelligence Checks regulatory submission completeness
+ICH M4 Check	            Checks the CTD structure
+Gap Detection	            Finds missing or incomplete sections
+Readiness Score	            Shows submission completeness
+AI Copilot	                 Explains results and helps prioritize actions
 
 ## Data Flow
 
-[Describe how data moves through your system from input to output.]
+User
+ ↓
+Adverse-event reports
+ ↓
+Data processing
+ ↓
+Drug-event analysis
+ ↓
+PRR calculation
+ ↓
+Safety signals
+ ↓
+AI Copilot
 
-1. [e.g., Pipeline logs are ingested via a webhook from GitHub Actions]
-2. [e.g., Logs are preprocessed and chunked into 512-token segments]
-3. [e.g., Each chunk is sent to the watsonx.ai inference endpoint]
-4. [e.g., Anomaly scores are stored in PostgreSQL]
-5. [e.g., The React dashboard polls the API every 30 seconds to refresh]
+### Safety Flow
+
+User → Adverse-event reports → Data processing → Drug-event analysis → PRR calculation → Safety signals → AI Copilot
+
+### Regulatory Flow
+
+User → CTD dossier → ICH M4 check → Module completeness → Gap detection → Readiness score → AI Copilot
 
 ## Security Considerations
 
-[Note any security decisions relevant to the architecture — even if basic.]
+Sensitive pharmaceutical and patient information should be handled securely.
 
-- [e.g., API keys stored in environment variables, never committed to git]
-- [e.g., All API routes require a Bearer token]
-- [e.g., Database credentials rotated via IBM Secrets Manager]
+API keys and other secrets should be stored using environment variables and should not be committed to the repository.
 
 ## Scalability Notes
 
-[Optional: how would this scale beyond the hackathon prototype?]
-
-[e.g., "The FastAPI backend is stateless and could be horizontally scaled behind a load balancer. The watsonx.ai calls are the bottleneck and would benefit from request batching."]
+The safety and regulatory components are separated into independent modules so that they can be developed and scaled independently as the application grows.
