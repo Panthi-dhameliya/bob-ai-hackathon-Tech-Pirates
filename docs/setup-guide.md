@@ -1,79 +1,69 @@
 # Setup Guide
 
-> **This file is read by the automated evaluation pipeline. Be precise and complete.**
+> This guide explains how to install, configure, run, and test PharmaGuard AI.
 
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
 
-- [ ] [e.g., Python 3.11+]
-- [ ] [e.g., Node.js 18+]
-- [ ] [e.g., Docker Desktop]
-- [ ] [e.g., An IBM Cloud account with watsonx.ai access]
+- Git
+- The software/runtime required by PharmaGuard AI
+- Node.js, if required by the frontend
+- Python, if required by the backend
+- Node.js
+- Python 3.x
+  
+ ## Environment Variables
 
-## Environment Variables
+PharmaGuard AI uses IBM watsonx.ai for AI functionality.
 
-Copy `.env.example` to `.env` and fill in the values:
-
-```bash
-cp .env.example .env
-```
-
-| Variable | Description | Required |
-|---|---|---|
-| `WATSONX_API_KEY` | Your IBM watsonx.ai API key | Yes |
-| `WATSONX_PROJECT_ID` | Your watsonx.ai project ID | Yes |
-| `DATABASE_URL` | PostgreSQL connection string | Yes |
-| `SLACK_WEBHOOK_URL` | Slack webhook for alerts | No |
-
+Create a `.env` file in the project root and add the required IBM watsonx.ai credentials provided by the developers.
 ## Installation
+### Frontend
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/[your-org]/[your-repo].git
-cd [your-repo]
+cd src/frontend
+npm install
 
-# 2. Install backend dependencies
-[your command — e.g.: pip install -r requirements.txt]
+### Backend
 
-# 3. Install frontend dependencies (if applicable)
-[your command — e.g.: cd frontend && npm install]
-
-# 4. Set up the database (if applicable)
-[your command — e.g.: python manage.py migrate]
-```
+```bash
+cd src/backend
+pip install -r requirements.txt
 
 ## Running the Application
 
+### Frontend
+
 ```bash
-# Start the backend
-[your command — e.g.: uvicorn app.main:app --reload]
+cd src/frontend
+npm run dev
 
-# Start the frontend (in a separate terminal, if applicable)
-[your command — e.g.: cd frontend && npm run dev]
-```
+### Backend
 
-The application will be available at: `http://localhost:[PORT]`
+```bash
+cd src/backend
+python -m uvicorn main:app --reload
 
 ## Running Tests
 
-```bash
-[your test command — e.g.: pytest tests/ -v]
-```
+The project can be tested by starting both the frontend and backend and verifying that they run without errors.
 
-## Quick Demo (Optional)
+## Quick Demo
 
-If you have a demo script or sample data to showcase the project quickly:
-
-```bash
-[e.g.: python demo/seed_demo_data.py]
-[e.g.: open http://localhost:8000/demo]
-```
+1. Start the frontend and backend using the commands above.
+2. Open the frontend in your browser.
+3. Use the Safety Intelligence and Regulatory Intelligence features to explore the application.
 
 ## Troubleshooting
 
-| Issue | Solution |
-|---|---|
-| [e.g., `ModuleNotFoundError`] | [e.g., Run `pip install -r requirements.txt` again] |
-| [e.g., Database connection refused] | [e.g., Ensure PostgreSQL is running: `docker compose up db`] |
-| [e.g., watsonx.ai 401 error] | [e.g., Check `WATSONX_API_KEY` in your `.env` file] |
+
+| Issue                   | Solution                                                                                 |
+| ----------------------- | ---------------------------------------------------------------------------------------- |
+| `npm install` fails     | Check that Node.js is installed and try running the command again.                       |
+| Python dependency error | Check that Python is installed and run `pip install -r requirements.txt` again.          |
+| Backend does not start  | Make sure you are inside `src/backend` and run the Uvicorn command again.                |
+| Frontend does not start | Make sure you are inside `src/frontend` and run `npm install` followed by `npm run dev`. |
+
+
+| Frontend does not start | Make sure you are inside `src/frontend` and run `npm install` followed by `npm run dev`. |
