@@ -1,4 +1,4 @@
-# 🚀 [Your Project Title Here]
+# 🚀 [InsightSathi]
 
 > ⚠️ **Replace everything in `[ ]` brackets with your actual content before submission.**
 
@@ -8,10 +8,10 @@
 
 | Field | Value |
 |---|---|
-| **Team Name** | [Your Team Name] |
-| **Track** | [AI / DevOps / Sustainability / Open] |
-| **Team Lead** | [Name] — [email@ibm.com] |
-| **Members** | [Name 1], [Name 2], [Name 3] |
+| **Team Name** | [Teach Pirates] |
+| **Track** | [AI] |
+| **Team Lead** | [Grishmma Narola] — [gnarola1911@gmail.com] |
+| **Members** | [Aesha], [Panthi], [Tamanna] |
 
 ---
 
@@ -19,7 +19,7 @@
 
 > In 2–3 sentences: What problem does your project solve? Who experiences this problem?
 
-[Describe the real-world problem your project addresses. Be specific about who the user is and what pain point they face.]
+[Pharmaceutical drug safety teams struggle to identify emerging safety signals from millions of adverse-event reports, while regulatory teams must manually check large CTD dossiers for missing or incomplete sections. These challenges can delay important safety decisions and regulatory submissions.]
 
 ---
 
@@ -27,17 +27,17 @@
 
 > In 2–3 sentences: What did you build? How does it solve the problem above?
 
-[Describe your solution clearly. Explain the core mechanism — what makes it work.]
+[InsightSathi is an AI-powered platform that detects potential drug safety signals from adverse-event data and checks regulatory submission dossiers against ICH M4 CTD requirements. It provides safety insights, readiness scores, prioritized gap reports, and AI-assisted explanations to help pharmaceutical teams understand and act on critical findings.]
 
 ---
 
 ## ✨ Key Features
 
-- **Feature 1:** [Brief description — e.g., "Real-time anomaly detection using watsonx.ai"]
-- **Feature 2:** [Brief description]
-- **Feature 3:** [Brief description]
-- **Feature 4:** [Optional]
-- **Feature 5:** [Optional]
+- **Feature 1:** [Drug safety signal detection using adverse-event data and PRR analysis]
+- **Feature 2:** [Regulatory submission checking against ICH M4 CTD requirements]
+- **Feature 3:** [Module-wise regulatory readiness scoring]
+- **Feature 4:** [Prioritized gap reports for missing or incomplete sections]
+- **Feature 5:** [AI Copilot for explaining findings and prioritizing actions]
 
 ---
 
@@ -45,11 +45,11 @@
 
 | Category | Technologies |
 |---|---|
-| **Languages** | [e.g., Python, TypeScript] |
-| **Frameworks** | [e.g., FastAPI, React] |
-| **IBM Technologies** | [e.g., watsonx.ai, IBM Bob, IBM Cloud] |
-| **Databases** | [e.g., PostgreSQL, Redis] |
-| **Other** | [e.g., Docker, GitHub Actions] |
+| **Languages** | [Python,javaScript] |
+| **Frameworks** | [eact, Vite, FastAPI, Pandas, Tailwind CSS, Recharts] |
+| **IBM Technologies** | [IBM watsonx.ai, IBM Bob] |
+| **Databases** | [JSON/in-memory storage for MVP] |
+| **Other** | [REST/JSON, GitHub] |
 
 ---
 
@@ -78,17 +78,27 @@
 ```bash
 # 1. Clone the repo
 git clone https://github.com/[your-repo].git
-cd [your-repo]
+cd [https://github.com/Panthi-dhameliya/bob-ai-hackathon-Tech-Pirates]
 
 # 2. Install dependencies
-[your install command here]
+[cd src/frontend
+npm install
+
+cd ../backend
+pip install -r requirements.txt]
 
 # 3. Configure environment
-cp .env.example .env
-# Edit .env with your values
+Create a `.env` file in the project root and add the required IBM watsonx.ai credentials.
+
 
 # 4. Run the project
-[your run command here]
+[# Backend
+cd src/backend
+python -m uvicorn main:app --reload
+
+# Frontend — run in a separate terminal
+cd src/frontend
+npm run dev]
 ```
 
 ---
@@ -108,14 +118,13 @@ cp .env.example .env
 
 > Be honest — judges appreciate transparency over overclaiming.
 
-- [Limitation 1: e.g., "Authentication is mocked — not production-ready"]
-- [Limitation 2: e.g., "Only tested on Chrome"]
-- [Limitation 3: e.g., "Feature X is scaffolded but not fully implemented"]
+- The current solution is a hackathon prototype and has been tested with limited sample data.
+- It has not yet been validated against the full scale of real-world pharmaceutical datasets and regulatory dossiers.
+- Further testing and validation would be required before production deployment.
 
 ---
 
 ## 🏅 What We're Most Proud Of
 
-[Tell the judges what part of your submission is strongest and worth paying close attention to.]
-
+We are most proud of combining drug safety signal detection and regulatory submission readiness in one platform. The solution turns complex pharmaceutical data into clear insights, readiness scores, prioritized gaps, and AI-assisted explanations to help teams focus on what needs attention first.
 ---
