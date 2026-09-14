@@ -26,35 +26,23 @@ flowchart TD
     O --> E
 
     E --> P[Explanation and Prioritization]
+```
 
-Main Components
+## Main Components
 
-Component	                Responsibility
-Dashboard                	Main interface for the pharmaceutical user
-Safety                      Intelligence Analyzes adverse-event reports
-PRR Analysis	            Calculates PRR statistics
-Safety Signals	            Identifies and prioritizes potential safety signals
-Regulatory                  Intelligence Checks regulatory submission completeness
-ICH M4 Check	            Checks the CTD structure
-Gap Detection	            Finds missing or incomplete sections
-Readiness Score	            Shows submission completeness
-AI Copilot	                 Explains results and helps prioritize actions
+| Component | Responsibility |
+|---|---|
+| Dashboard | Main interface for the pharmaceutical user |
+| Safety Intelligence | Analyzes adverse-event reports |
+| PRR Analysis | Calculates PRR statistics |
+| Safety Signals | Identifies and prioritizes potential safety signals |
+| Regulatory Intelligence | Checks regulatory submission completeness |
+| ICH M4 Check | Checks the CTD structure |
+| Gap Detection | Finds missing or incomplete sections |
+| Readiness Score | Shows submission completeness |
+| AI Copilot | Explains results and helps prioritize actions |
 
 ## Data Flow
-
-User
- ↓
-Adverse-event reports
- ↓
-Data processing
- ↓
-Drug-event analysis
- ↓
-PRR calculation
- ↓
-Safety signals
- ↓
-AI Copilot
 
 ### Safety Flow
 
